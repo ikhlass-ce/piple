@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    window.onerror = function(message, source, lineno, colno, error) {
+      var div = document.createElement('div');
+      div.style.position = 'fixed';
+      div.style.top = '0';
+      div.style.left = '0';
+      div.style.width = '100%';
+      div.style.height = '100%';
+      div.style.background = '#800';
+      div.style.color = '#fff';
+      div.style.padding = '30px';
+      div.style.zIndex = '999999';
+      div.style.fontFamily = 'monospace';
+      div.style.overflow = 'auto';
+      div.innerHTML = '<h1 style="color:#ff4d4d;margin-bottom:10px;">🚨 Browser Compilation Error</h1>' +
+                      '<p style="font-size:16px;"><strong>Message:</strong> ' + message + '</p>' +
+                      '<p style="font-size:16px;"><strong>Source URL:</strong> ' + source + '</p>' +
+                      '<p style="font-size:16px;"><strong>Line:</strong> ' + lineno + ' | <strong>Column:</strong> ' + colno + '</p>' +
+                      (error && error.stack ? '<pre style="background:#400;padding:15px;border-radius:5px;margin-top:15px;white-space:pre-wrap;">' + error.stack + '</pre>' : '') +
+                      '<p style="margin-top:20px;color:#ccc;">💡 <em>Tip: If the error is about "CORS" or "Origin", you must open the site via <strong>http://localhost:3000</strong> instead of double-clicking the index.html file directly.</em></p>';
+      document.body.appendChild(div);
+      return false;
+    };
+  </script>
+  <title>piple - Purple & White Movie & Anime Discovery</title>
+  <meta name="description" content="Discover, search, filter, and save your favorite movies and anime on piple. Manage records in real-time with our Supabase dashboard.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- CDN Scripts for React, Babel & Supabase (Zero-Install Solution) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <!-- Main React JSX script compiled in-browser -->
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

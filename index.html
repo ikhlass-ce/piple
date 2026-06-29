@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    window.onerror = function(message, source, lineno, colno, error) {
+      var div = document.createElement('div');
+      div.style.position = 'fixed';
+      div.style.top = '0';
+      div.style.left = '0';
+      div.style.width = '100%';
+      div.style.height = '100%';
+      div.style.background = '#800';
+      div.style.color = '#fff';
+      div.style.padding = '30px';
+      div.style.zIndex = '999999';
+      div.style.fontFamily = 'monospace';
+      div.style.overflow = 'auto';
+      div.innerHTML = '<h1 style="color:#ff4d4d;margin-bottom:10px;">🚨 Browser Runtime Error</h1>' +
+                      '<p style="font-size:16px;"><strong>Message:</strong> ' + message + '</p>' +
+                      '<p style="font-size:16px;"><strong>Source URL:</strong> ' + source + '</p>' +
+                      '<p style="font-size:16px;"><strong>Line:</strong> ' + lineno + ' | <strong>Column:</strong> ' + colno + '</p>' +
+                      (error && error.stack ? '<pre style="background:#400;padding:15px;border-radius:5px;margin-top:15px;white-space:pre-wrap;">' + error.stack + '</pre>' : '') +
+                      '<p style="margin-top:20px;color:#ccc;">💡 <em>Tip: Verify that the dev server is running and check the terminal logs for compilation errors.</em></p>';
+      document.body.appendChild(div);
+      return false;
+    };
+  </script>
+  <title>piple - Netflix-Style Streaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body style="background-color: #111; color: #fff; margin: 0;">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
